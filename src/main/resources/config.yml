@@ -1,0 +1,158 @@
+database:
+  type: sqlite
+  host: localhost
+  port: 3306
+  database: bonty
+  username: root
+  password: ''
+  table-prefix: bonty_
+  pool-size: 10
+  redis:
+    host: localhost
+    port: 6379
+    password: ''
+    database: 0
+
+features:
+  scoreboard:
+    enabled: true
+    update-interval: 20
+    title: '&6&lKoTH &8| &e{koth}'
+    lines:
+      - '&7'
+      - '&fMode: &e{mode}'
+      - '&fCapturer: &e{capturer}'
+      - '&fProgress: &e{progress}%'
+      - '&fYour Score: &e{score}'
+      - '&fTime Left: &e{time_left}'
+      - '&7'
+  
+  bossbar:
+    enabled: true
+    color: PURPLE
+    style: SOLID
+    title: '&e{koth} &7| &fCapturer: &e{capturer} &7| &f{progress}%'
+
+  actionbar:
+    enabled: true
+    update-interval: 20
+    text: '&e{koth} &8• &f{mode} &8• &f{progress}% &8• &f{time_left}'
+  
+  discord-webhooks:
+    enabled: false
+    username: 'Bonty'
+    avatar-url: ''
+    events:
+      start:
+        enabled: true
+        url: ''
+        title: 'KoTH Started'
+        description: '{koth} has started!'
+        color: 16776960
+      stop:
+        enabled: true
+        url: ''
+        title: 'KoTH Stopped'
+        description: '{koth} has ended.'
+        color: 16753920
+      capture-start:
+        enabled: true
+        url: ''
+        title: 'Capture Started'
+        description: '{player} started capturing {koth}.'
+        color: 65535
+      capture-stop:
+        enabled: true
+        url: ''
+        title: 'Capture Stopped'
+        description: '{player} is no longer capturing {koth}.'
+        color: 16711680
+      win:
+        enabled: true
+        url: ''
+        title: 'KoTH Winner'
+        description: '{player} won {koth}!'
+        color: 65280
+  
+  team-mode:
+    enabled: false
+    show-team-next-to-name: true
+    replace-name-with-team: false
+  
+  placeholder-api:
+    enabled: true
+  
+  leaderboards:
+    enabled: true
+    update-interval: 300
+    types:
+      - hourly
+      - daily
+      - weekly
+      - monthly
+
+limitations:
+  broadcast-distance: -1
+  bossbar-distance: -1
+  scoreboard-distance: -1
+  world-limit:
+    enabled: false
+    worlds:
+      - world
+
+wand:
+  item: GOLDEN_AXE
+  name: '&6KoTH Selection Wand'
+  lore:
+    - '&7Left click to set position 1'
+    - '&7Right click to set position 2'
+
+rewards:
+  capture-mode:
+    commands:
+      - 'give {player} diamond 5'
+      - 'eco give {player} 1000'
+    broadcast: '&e{player} &ahas captured the &e{koth} &aKoTH!'
+  
+  score-mode:
+    commands:
+      - 'give {player} diamond 3'
+      - 'eco give {player} 500'
+    broadcast: '&e{player} &awon the &e{koth} &aKoTH with &e{score} &apoints!'
+
+  koths:
+    example:
+      capture-mode:
+        commands:
+          - 'give {player} emerald 10'
+        broadcast: '&a{player} captured {koth} with custom rewards!'
+      score-mode:
+        commands:
+          - 'give {player} gold_ingot 32'
+        broadcast: '&a{player} won {koth} in score mode with custom rewards!'
+
+messages:
+  prefix: '&8[&6Bonty&8] &7'
+  no-permission: '&cYou do not have permission.'
+  player-not-found: '&cPlayer not found.'
+  koth-not-found: '&cKoTH &e{name} &cdoes not exist.'
+  koth-already-exists: '&cKoTH &e{name} &calready exists.'
+  koth-created: '&aKoTH &e{name} &acreated successfully!'
+  koth-deleted: '&aKoTH &e{name} &adeleted successfully!'
+  koth-started: '&aKoTH &e{name} &ahas been started!'
+  koth-stopped: '&aKoTH &e{name} &ahas been stopped!'
+  koth-already-running: '&cKoTH &e{name} &cis already running!'
+  koth-not-running: '&cKoTH &e{name} &cis not running!'
+  positions-not-set: '&cPlease set both positions first!'
+  position-set: '&aPosition {pos} set at &e{x}, {y}, {z}'
+  config-reloaded: '&aConfiguration reloaded!'
+  capture-started: '&e{player} &ais capturing &e{koth}&a!'
+  capture-progress: '&aCapture progress: &e{progress}%'
+  capture-interrupted: '&cYour capture was interrupted!'
+  score-update: '&e{player}&a: &e{score} &apoints'
+  joined-koth: '&aYou joined the &e{koth} &aKoTH!'
+  left-koth: '&cYou left the &e{koth} &aKoTH!'
+  wand-received: '&aYou received the selection wand!'
+  must-select-area: '&cYou must select an area with the wand first!'
+  invalid-mode: '&cInvalid mode. Use CAPTURE or SCORE.'
+  editor-opened: '&aOpened editor for &e{koth}'

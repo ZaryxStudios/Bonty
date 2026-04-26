@@ -1,0 +1,78 @@
+name: Bonty
+version: 1.0.0-SNAPSHOT
+main: com.capito.bonty.Bonty
+api-version: '1.13'
+author: CapitoMC
+description: The ALL-IN-ONE KoTH plugin with GUI editors!
+softdepend: [PlaceholderAPI, Vault]
+
+commands:
+  bonty:
+    description: Shows plugin information
+    aliases: [kothinfo]
+  
+  koth:
+    description: Main KoTH command
+    usage: /koth <subcommand>
+    aliases: [kingofthehill]
+
+permissions:
+  bonty.admin:
+    description: Full access to all commands
+    default: op
+    children:
+      bonty.create: true
+      bonty.delete: true
+      bonty.start: true
+      bonty.stop: true
+      bonty.edit: true
+      bonty.reload: true
+      bonty.setspawn: true
+  
+  bonty.create:
+    description: Create KoTH zones
+    default: op
+  
+  bonty.delete:
+    description: Delete KoTH zones
+    default: op
+  
+  bonty.start:
+    description: Start KoTH events
+    default: op
+  
+  bonty.stop:
+    description: Stop KoTH events
+    default: op
+  
+  bonty.edit:
+    description: Edit KoTH zones
+    default: op
+  
+  bonty.reload:
+    description: Reload configuration
+    default: op
+  
+  bonty.setspawn:
+    description: Set spawn points
+    default: op
+  
+  bonty.join:
+    description: Join KoTH events
+    default: true
+  
+  bonty.list:
+    description: List KoTH events
+    default: true
+  
+  bonty.info:
+    description: View KoTH information
+    default: true
+  
+  bonty.leaderboard:
+    description: View leaderboards
+    default: true
+  
+  bonty.wand:
+    description: Get the selection wand
+    default: op
